@@ -4,8 +4,9 @@ import java.util.Stack;
 
 public class Problem_01_GetMinStack {
 
-	//第一个栈
+	//第一个栈,第一种方法
 	public static class MyStack1 {
+	    //初始化两个栈,一个为正式使用的栈,一个为使用栈的最小元素
 		private Stack<Integer> stackData;
 		private Stack<Integer> stackMin;
 
@@ -15,22 +16,27 @@ public class Problem_01_GetMinStack {
 			this.stackMin = new Stack<Integer>();
 		}
 
-		//下压栈
+		//下压栈,并判断最小元素
 		public void push(int newNum) {
+		    //为空直接更新最小元素,非空判断是否更新最小元素
 			if (this.stackMin.isEmpty()) {
 				this.stackMin.push(newNum);
 			} else if (newNum <= this.getmin()) {
 				this.stackMin.push(newNum);
 			}
+			//无论是否为空直接添加元素到栈顶
 			this.stackData.push(newNum);
 		}
 
 		//获取栈顶元素
 		public int pop() {
+		    //如果为空则报异常
 			if (this.stackData.isEmpty()) {
 				throw new RuntimeException("Your stack is empty.");
 			}
+			//获取栈顶元素
 			int value = this.stackData.pop();
+			//如果栈顶元素为当前最小,获取存储最小栈的栈顶元素为获取栈顶后的最小元素
 			if (value == this.getmin()) {
 				this.stackMin.pop();
 			}
@@ -42,11 +48,12 @@ public class Problem_01_GetMinStack {
 			if (this.stackMin.isEmpty()) {
 				throw new RuntimeException("Your stack is empty.");
 			}
+			//返回栈顶的值,不删除栈顶的值
 			return this.stackMin.peek();
 		}
 	}
 
-	//第二个栈
+	//第二个栈,第二种方法
 	public static class MyStack2 {
 		private Stack<Integer> stackData;
 		private Stack<Integer> stackMin;
