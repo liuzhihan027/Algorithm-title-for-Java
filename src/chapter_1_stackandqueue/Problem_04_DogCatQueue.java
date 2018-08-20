@@ -61,7 +61,7 @@ public class Problem_04_DogCatQueue {
 			this.catQ = new LinkedList<PetEnterQueue>();
 			this.count = 0;
 		}
-
+		//添加
 		public void add(Pet pet) {
 			if (pet.getPetType().equals("dog")) {
 				this.dogQ.add(new PetEnterQueue(pet, this.count++));
@@ -71,7 +71,7 @@ public class Problem_04_DogCatQueue {
 				throw new RuntimeException("err, not dog or cat");
 			}
 		}
-
+		//以此弹出队列
 		public Pet pollAll() {
 			if (!this.dogQ.isEmpty() && !this.catQ.isEmpty()) {
 				if (this.dogQ.peek().getCount() < this.catQ.peek().getCount()) {
@@ -102,15 +102,15 @@ public class Problem_04_DogCatQueue {
 			} else
 				throw new RuntimeException("Cat queue is empty!");
 		}
-
+		//判断非空
 		public boolean isEmpty() {
 			return this.dogQ.isEmpty() && this.catQ.isEmpty();
 		}
-
+		//判断狗队列非空
 		public boolean isDogQueueEmpty() {
 			return this.dogQ.isEmpty();
 		}
-
+		//判断猫队列非空
 		public boolean isCatQueueEmpty() {
 			return this.catQ.isEmpty();
 		}
