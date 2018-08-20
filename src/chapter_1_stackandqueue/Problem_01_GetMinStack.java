@@ -3,15 +3,19 @@ package chapter_1_stackandqueue;
 import java.util.Stack;
 
 public class Problem_01_GetMinStack {
+
+	//第一个栈
 	public static class MyStack1 {
 		private Stack<Integer> stackData;
 		private Stack<Integer> stackMin;
 
+		//栈初始化
 		public MyStack1() {
 			this.stackData = new Stack<Integer>();
 			this.stackMin = new Stack<Integer>();
 		}
 
+		//下压栈
 		public void push(int newNum) {
 			if (this.stackMin.isEmpty()) {
 				this.stackMin.push(newNum);
@@ -21,6 +25,7 @@ public class Problem_01_GetMinStack {
 			this.stackData.push(newNum);
 		}
 
+		//获取栈顶元素
 		public int pop() {
 			if (this.stackData.isEmpty()) {
 				throw new RuntimeException("Your stack is empty.");
@@ -32,6 +37,7 @@ public class Problem_01_GetMinStack {
 			return value;
 		}
 
+		//获取栈中最小元素
 		public int getmin() {
 			if (this.stackMin.isEmpty()) {
 				throw new RuntimeException("Your stack is empty.");
@@ -40,6 +46,7 @@ public class Problem_01_GetMinStack {
 		}
 	}
 
+	//第二个栈
 	public static class MyStack2 {
 		private Stack<Integer> stackData;
 		private Stack<Integer> stackMin;
@@ -78,9 +85,10 @@ public class Problem_01_GetMinStack {
 	}
 
 	public static void main(String[] args) {
+	    //初始化栈1
 		MyStack1 stack1 = new MyStack1();
-		stack1.push(3);
-		System.out.println(stack1.getmin());
+		stack1.push(3);//添加元素
+		System.out.println(stack1.getmin());//获取最小值
 		stack1.push(4);
 		System.out.println(stack1.getmin());
 		stack1.push(1);
