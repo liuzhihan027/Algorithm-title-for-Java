@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Problem_04_DogCatQueue {
-
+	//动物类
 	public static class Pet {
 		private String type;
 
@@ -16,19 +16,19 @@ public class Problem_04_DogCatQueue {
 			return this.type;
 		}
 	}
-
+	//狗类继承动物类
 	public static class Dog extends Pet {
 		public Dog() {
 			super("dog");
 		}
 	}
-
+	//猫类继承动物类
 	public static class Cat extends Pet {
 		public Cat() {
 			super("cat");
 		}
 	}
-
+	//动物进入队列
 	public static class PetEnterQueue {
 		private Pet pet;
 		private long count;
@@ -51,7 +51,9 @@ public class Problem_04_DogCatQueue {
 		}
 	}
 
+	//猫狗队列算法
 	public static class DogCatQueue {
+	    //初始化猫狗队列
 		private Queue<PetEnterQueue> dogQ;
 		private Queue<PetEnterQueue> catQ;
 		private long count;
@@ -147,9 +149,9 @@ public class Problem_04_DogCatQueue {
 		test.add(cat2);
 		test.add(dog3);
 		test.add(cat3);
-		while (!test.isDogQueueEmpty()) {
-			System.out.println(test.pollDog().getPetType());
-		}
+		//while (!test.isDogQueueEmpty()) {
+		//	System.out.println(test.pollDog().getPetType());
+		//}
 		while (!test.isEmpty()) {
 			System.out.println(test.pollAll().getPetType());
 		}
